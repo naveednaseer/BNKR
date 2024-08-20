@@ -5,12 +5,13 @@ import React from 'react'
 import Copy from './Copy'
 
 
-const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) => {
+const BankCard = ({ account, userName, isSecond, showBalance = true }: CreditCardProps) => {
   return (
     <div className='flex flex-col'>
-        <Link href={`/transaction-history/?id=${account.appwriteItemId}`} className='bank-card'>
-        {/* <Link href='/' className='bank-card min-w-[320px]'> */}
-            <div className='bank-card_content'>
+            <Link href={`/transaction-history/?id=${account.appwriteItemId}`} className={`min-w-[295px] ${isSecond ? 'bank-card-2' : 'bank-card'}`}>
+        {/* <Link href={`/transaction-history/?id=${account.appwriteItemId}`} className='bank-card min-w-[295px]'> */}
+            <div className={`${isSecond ? 'bank-card_content-2' : 'bank-card_content'}`}>
+            {/* <div className='bank-card_content'> */}
                 <div>
                     <h1 className='text-16 font-semibold text-white'>{account.name}</h1>
                     <p className='font-semibold font-black text-white'>{formatAmount(account.currentBalance)}</p>
@@ -31,7 +32,8 @@ const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) =>
                 </article>
             </div>
 
-            <div className='bank-card_icon'>
+            <div className={`${isSecond ? 'bank-card_icon-2' : 'bank-card_icon'}`}>
+            {/* <div className='bank-card_icon'> */}
                 <Image 
                     src='/icons/Paypass.svg'
                     width={20}
@@ -55,7 +57,7 @@ const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) =>
             />
             
         </Link>
-
+ 
         {showBalance && <Copy title={account?.shareableId} />}
     </div>
   )
