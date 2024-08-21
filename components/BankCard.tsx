@@ -48,8 +48,8 @@ const BankCard = ({ account, userName, isSecond, showBalance = true }: CreditCar
                     className='ml-5'
                 />
             </div>
-            <Image  
-                src='/icons/lines.svg'
+            <Image 
+                src='/icons/Lines.svg'
                 width={316}
                 height={190}
                 alt='lines'
